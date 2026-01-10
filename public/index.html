@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRUD App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>CRUD Application</h2>
+
+<form id="userForm" action="/add-user" method="POST" enctype="multipart/form-data">
+<input type="text" name="name" placeholder="Name" required pattern="[A-Za-z\s]+" title="Name should contain only letters"
+  oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')"/>
+    <input type="date" name="dob" placeholder="DOB" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="text" name="mobile" placeholder="Mobile" required pattern="\d{10}"><br>
+    <input type="file" name="photo"><br>
+    <button type="submit">Add User</button>
+</form>
+
+<h3>Edit User</h3>
+
+<form id="editForm" method="POST" enctype="multipart/form-data" style="display:none;">
+    <input type="text" name="name" id="editName" required><br>
+    <input type="date" name="dob" id="editDob" required><br>
+    <input type="email" name="email" id="editEmail" required><br>
+    <input type="text" name="mobile" id="editMobile" required><br>
+    <input type="file" name="photo"><br>
+
+    <button type="submit">Update User</button>
+</form>
+
+
+<hr>
+
+<h3>Users List</h3>
+<table border="1" id="userTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
